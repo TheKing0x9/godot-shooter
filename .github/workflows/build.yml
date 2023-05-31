@@ -13,7 +13,7 @@ jobs:
         platform: [linux, windows, mac]
     steps:
       - name : Install X11
-        run : apt install libx11-dev
+        run : sudo apt install libx11-dev
       - uses: actions/checkout@v2
         with:
           lfs: true
@@ -23,6 +23,7 @@ jobs:
         with:
           name: SubmarineGame
           preset: ${{ matrix.platform }}
+          package: "true"
           debugMode: "true"
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
